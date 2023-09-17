@@ -1,12 +1,45 @@
-def a():
-    print("a")
+# Default Arguments
+def a(b="b"):
+    print(b)
 
 
-def b(c, d="b"):
-    print(c)
-    print(d)
+a()
+a("c")
 
 
-b("c")
+def c(name, location):
+    print(name)
+    print(location)
 
-b("c", "d")
+
+# Positional Arguments
+c("David", "Paris")
+# Keyword Arguments
+c(location="London", name="John")
+
+
+def d(e):
+    """
+    docstring to add detail to functions
+    """
+    return e + 1
+
+
+# Unlimited Arguments
+def f(*g):
+    # g is unlimited arguments in form of tuples
+    for n in g:
+        print(n)
+
+
+f(1, 3, 5)
+
+
+def h(**i):
+    # i is unlimited keyword arguments in form of dictionary
+    print(i)
+    for key, value in i.items():
+        print(key, value)
+
+
+h(a=1, b=2, c=3)
