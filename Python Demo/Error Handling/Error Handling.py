@@ -18,7 +18,7 @@ try:
     # something might cause an Error
     file = open("a.txt")
 # except:  # do this if there was an Error of any Type
-except FileNotFoundError: # do this only if there was a FileNotFoundError
+except FileNotFoundError:  # do this only if there was a FileNotFoundError
     file = open("a.text", "w")
     file.write("Something")
 # except KeyError as error_message: # can have multiple Exception to handle any type of Error
