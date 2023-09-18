@@ -43,3 +43,8 @@ def h(**i):
 
 
 h(a=1, b=2, c=3)
+
+
+def j(k: str, m: int) -> int:
+    print(k)
+    return m
