@@ -3,32 +3,39 @@ my_list = ["a", "b", "c", "d", "e", "f"]
 for s in my_list:
     print(s, end=" ")
 
-print("")
 
+print("")
 for index in range(len(my_list)):
     print(index, end=" ")
+
 
 print("")
 for number in range(5):
     print(number, end=" ")
     # 0, 1, 2, 3, 4
 
+
 print("")
 for number in range(1, 10):
     print(number, end=" ")
     # 1, 2, 3, 4, 5, 6, 7, 8, 9
+
 
 print("")
 for number in range(1, 10, 3):
     print(number, end=" ")
     # 1, 4, 7
 
+
+# While loop
 condition = 5
 print("")
 while condition > 0:
     print(condition, end=" ")
     condition -= 1
 
+
+# Dictionary Loop
 my_dict = {"a": 1, "b": 2, "c": 3}
 
 print("")
@@ -36,9 +43,11 @@ for key in my_dict:
     print(key, end=" ")
     # a, b, c
 
+
 print("")
 for key, value in my_dict.items():
     print(key, value)
+
 
 # Comprehension
 new_list_1 = [f"new {item}" for item in my_list]
