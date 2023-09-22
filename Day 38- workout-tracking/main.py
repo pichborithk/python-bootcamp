@@ -14,6 +14,7 @@ sheety_endpoint = (
     "https://api.sheety.co/0f19e90cd91ebef484653657b6ae2102/workoutTracking/workouts"
 )
 
+
 exercises_text = input("Tell me which exercises you did: ")
 
 nutritionix_headers = {
