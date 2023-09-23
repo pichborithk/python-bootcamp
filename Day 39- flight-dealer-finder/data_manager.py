@@ -18,12 +18,11 @@ class DataManager:
         self.destination_data = data["prices"]
         return self.destination_data
 
-    def update_destination_code(self):
-        for row in self.destination_data:
-            new_data = {"price": {"iataCode": row["iataCode"]}}
-            response = requests.put(
-                url=f"{SHEETY_ENDPOINT}/{row['id']}",
-                headers=SHEETY_HEADERS,
-                json=new_data,
-            )
-            print(response.text)
+    def update_destination_code(self, city_id, city_code):
+        new_data = {"price": {"iataCode": city_code}}
+        response = requests.put(
+            url=f"{SHEETY_ENDPOINT}/{city_id}",
+            headers=SHEETY_HEADERS,
+            json=new_data,
+        )
+        print(response.text)
