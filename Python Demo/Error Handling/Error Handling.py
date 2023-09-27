@@ -39,3 +39,15 @@ weight = int(input("Weight: "))
 
 if height > 3:
     raise ValueError("Human height should not be over 3 meters.")
+
+
+# Testing
+def squared(n):
+    return n * n
+
+
+def test_squared():
+    try:
+        assert squared(2) != 4
+    except AssertionError:
+        print("squared(2) is not equal to 4")
