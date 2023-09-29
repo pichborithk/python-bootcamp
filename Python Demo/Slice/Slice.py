@@ -14,6 +14,7 @@ print(my_list[1:4:2])
 print(my_list[::2])  # print(my_list[0:5:2])
 # 0, 2, 4
 
+# Reverse list
 print(my_list[::-1])
 # 5, 4, 3, 2, 1, 0
 
