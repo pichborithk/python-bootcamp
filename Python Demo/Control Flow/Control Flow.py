@@ -70,3 +70,6 @@ print({True: d, False: e}[d < e])
 # Ternary Operator using Lambda
 
 print((lambda: e, lambda: d)[d < e]())
+
+if f := my_list[5]:
+    print(f)

@@ -1,0 +1,30 @@
+.     :   any character except a new line
+
+*     :   0 or more repetitions
+a.*   :   a, ab, abc123y56568
+
++     :   1 or more repetitions
+a.+   :   ab, abc, adc123y56568
+..* == .+
+
+?     :   0 or 1 repetitions
+{m}   : m repetitions
+{m,n} : m-n repetitions
+
+^     : matches the start of the string
+$     : matches the end of the string or just before the newline at the end of the string
+
+[]    : set of characters
+[^]   : complementing the set (not match any of characters)
+
+\w    : [a-zA-Z0-9_] word character... as well as numbers and the underscoere
+\W    : [^a-zA-Z] not a word character
+\d    : decimal digit
+\D    : not a decimal digit
+\s    : whitespace characters
+\S    : not a whitespace character
+
+A|B   : either A or B (A and B can be any patterns)
+(...) : a group
+(?:..) : non-capturing version
+[a-zA-Z0-9_ ] == (\w|\s)
