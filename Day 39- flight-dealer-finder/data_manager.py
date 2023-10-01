@@ -19,7 +19,8 @@ class DataManager:
         # print(self.destination_data)
         return self.destination_data
 
-    def update_destination_code(self, city_id, city_code):
+    @staticmethod
+    def update_destination_code(city_id, city_code):
         new_data = {"price": {"iataCode": city_code}}
         response = requests.put(
             url=f"{SHEETY_ENDPOINT}/{city_id}",
