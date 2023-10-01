@@ -36,6 +36,7 @@ d.e()
 print(d.b, d.c, d.f)
 
 
+# Property and Decorator
 class H:
     def __init__(self, j):
         self.j = j
@@ -60,7 +61,7 @@ h.j = "k"
 print(h.j)
 
 
-# make property immutable
+# To make property immutable
 class M:
     def __init__(self, n):
         self._n = n
@@ -84,6 +85,7 @@ m.n = "p"
 print(m.n)
 
 
+# classmethod and staticmethod
 class Q:
     q = "q"
 
@@ -98,3 +100,24 @@ class Q:
 
 Q.print("r")
 Q.s("t")
+
+
+# Operator overloading
+class U:
+    def __init__(self, v):
+        self.v = v
+
+    def __add__(self, other):
+        new_v = self.v + other.v
+        # as long as "other" had the same attribute/property (v) as self
+        # we can use any class as "other"
+        return U(new_v)
+
+    def __str__(self):
+        return f"v = {self.v}"
+
+
+u_1 = U(5)
+u_2 = U(10)
+new_u = u_1 + u_2
+print(new_u)
