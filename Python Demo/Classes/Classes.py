@@ -95,11 +95,14 @@ class Q:
 
     @staticmethod
     def s(t):
+        print(Q.q)
         print(t)
 
 
 Q.print("r")
 Q.s("t")
+q = Q()
+print(Q.q)
 
 
 # Operator overloading

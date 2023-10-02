@@ -67,9 +67,23 @@ print(new_dict_1)
 new_dict_2 = {f"new {key}": value + 1 for key, value in my_dict.items()}
 print(new_dict_2)
 
+
 # Conditional Comprehension
 new_list_4 = [number for number in new_list_3 if number % 2 == 0]
 print(new_list_4)
 
 new_dict_3 = {f"new {key}": value for key, value in my_dict.items() if value % 2 != 0}
 print(new_dict_3)
+
+
+# map
+map_list = map(lambda string: string + "1", my_list)
+print(list(map_list))
+
+# filter
+filter_list = filter(lambda string: string != "a", my_list)
+print(list(filter_list))
+
+# enumerate
+for i, string in enumerate(my_list):
+    print(i, string)
