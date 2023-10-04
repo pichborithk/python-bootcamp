@@ -65,3 +65,22 @@ def say_greeting():
 
 decorated_function = delay_decorator(say_greeting)
 decorated_function()
+
+
+def logging_decorator(func):
+    def wrapper(*args):
+        print(f"You called {func.__name__}{args}")
+        print(f"It returned: {func(*args)}")
+
+    return wrapper
+
+
+# TODO: Use the decorator 👇
+
+
+@logging_decorator
+def a_function(a, b, c):
+    return a * b * c
+
+
+a_function(1, 2, 3)
