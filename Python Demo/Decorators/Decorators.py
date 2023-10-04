@@ -75,9 +75,6 @@ def logging_decorator(func):
     return wrapper
 
 
-# TODO: Use the decorator 👇
-
-
 @logging_decorator
 def a_function(a, b, c):
     return a * b * c
