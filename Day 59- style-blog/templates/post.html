@@ -1,28 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/styles.css">
-</head>
-<body>
-<div class="wrapper">
-    <div class="top">
-        <div class="title"><h1>My Blog</h1></div>
-           </div>
-        <div class="content">
-            <div class="card">
-                <h2>{{post.title}}</h2>
-                <p class="text">{{ post.subtitle }}</p>
-                <p>{{ post.body }}</p>
-                <a href="{{ url_for('home') }}">Back</a>
-            </div>
+   {% include "header.html" %}
+        <!-- Page Header-->
 
-    </div>
-</div>
-</body>
-<footer>
-    <p>Made with ♥️ in London.</p>
-</footer>
-</html>
+        <header class="masthead" style="background-image: url('{{ post.image_url }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{ post.title}}</h1>
+                            <h2 class="subheading">{{ post.subtitle }}</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">{{ post.author }}</a>
+                                on {{ post.date }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>{{ post.body}}</p>
+                        <p>{{ post.body}}</p>
+                        <h2 class="section-heading">The Final Frontier</h2>
+                        <p>{{ post.body}}</p>
+                        <blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+                         <p>{{ post.body}}</p>
+                        <h2 class="section-heading">Reaching for the Stars</h2>
+                         <p>{{ post.body}}</p>
+                        <a href="#!"><img class="img-fluid" src="../static/assets/img/post-sample-image.jpg" alt="..." /></a>
+                        <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
+                        <p>{{ post.body}}</p>
+                        <p>
+                            Placeholder text by
+                            <a href="http://spaceipsum.com/">Space Ipsum</a>
+                            &middot; Images by
+                            <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+    <!-- Footer-->
+        {% include "footer.html" %}
