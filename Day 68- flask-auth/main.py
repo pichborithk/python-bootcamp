@@ -8,7 +8,7 @@ from flask import (
     flash,
     send_from_directory,
 )
-from flask_sqlalchemy import SQLAlchemy
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import (
     login_user,
@@ -45,12 +45,21 @@ with app.app_context():
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("index.html", logged_in=current_user.is_authenticated)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        email = request.form.get('email')
+        result = db.session.execute(db.select(User).where(User.email == email))
+        # Note, email in db is unique so will only have one result.
+        user = result.scalar()
+        if user:
+            # User already exists
+            flash("You've already signed up with that email, log in instead!")
+            return redirect(url_for('login'))
+
         hash_and_salted_password = generate_password_hash(
             request.form.get("password"), method="pbkdf2:sha256", salt_length=8
         )
@@ -68,7 +77,7 @@ def register():
 
         return redirect(url_for("secrets"))
 
-    return render_template("register.html")
+    return render_template("register.html", logged_in=current_user.is_authenticated)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -80,13 +89,19 @@ def login():
         # Find user by email entered.
         result = db.session.execute(db.select(User).where(User.email == email))
         user = result.scalar()
+        if not user:
+            flash("That email does not exist, please try again.")
+            return redirect(url_for("login"))
 
         # Check stored password hash against entered password hashed.
-        if check_password_hash(user.password, password):
+        if not check_password_hash(user.password, password):
+            flash("Password incorrect, please try again.")
+            return redirect(url_for("login"))
+        else:
             login_user(user)
             return redirect(url_for("secrets"))
 
-    return render_template("login.html")
+    return render_template("login.html", logged_in=current_user.is_authenticated)
 
 
 @app.route("/secrets")
@@ -94,7 +109,7 @@ def login():
 def secrets():
     print(current_user.name)
     # Passing the name from the current_user
-    return render_template("secrets.html", name=current_user.name)
+    return render_template("secrets.html", name=current_user.name, logged_in=True)
 
 
 @app.route("/logout")
