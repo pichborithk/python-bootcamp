@@ -11,6 +11,7 @@ __pycache__/
 .vscode/*
 !.vscode/extensions.json
 local_settings.py
+Icon?
 
 # log & debug 
 logs
